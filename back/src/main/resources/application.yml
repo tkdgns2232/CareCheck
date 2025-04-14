@@ -1,0 +1,56 @@
+spring:
+  profiles:
+    active: live
+    group:
+      local: local_server, common, secret
+      live: live_server, common, secret
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: local_server
+
+server:
+  port: 8080
+react:
+  server:
+    protocol: http
+    host: localhost
+    port: 5173
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: live_server
+
+server:
+  port: 8080
+react:
+  server:
+    protocol: https
+    host: hshpj.store
+    port: 80
+---
+spring:
+  config:
+    activate:
+      on-profile: common
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+springdoc:
+  override-with-generic-response: false
+
+mybatis:
+  mapper-locations:
+    - /mappers/patient/*.xml
+    - /mappers/user/*.xml
+    - /mappers/setting/*.xml
+    - /mappers/adminMapper/*.xml
+    - /mappers/notice/*.xml
+    - /mappers/summaryMapper/*.xml
