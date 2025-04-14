@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: create-vite-env  
+      - name: 🎁 create-vite-env  
         run: |
           chmod 777 -R front
           cat <<EOL > front/.env
@@ -19,7 +19,7 @@ jobs:
           EOL
           cat front/.env
 
-      - name: create-vite-env  
+      - name: 👓 application-secret
         run: |
           chmod 777 -R back
           cat <<EOL > back/src/main/resources/application-secret.yml
