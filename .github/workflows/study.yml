@@ -27,14 +27,12 @@ jobs:
             config:
               activate:
                 on-profile: secret
-
             datasource:
               driver-class-name: com.mysql.cj.jdbc.Driver
               url: jdbc:mysql://${{ secrets.EC2_PUBLIC_IP}}:3306/${{ secrets.DATABASE_NAME }}
               username: ${{ secrets.DATABASE_USERNAME }}
               password: ${{ secrets.DATABASE_PASSWORD }}
-        
             jwt:
               secret: ${{ secrets.JWT_SECRET }}
-            EOL
-            cat back/src/main/resources/application-secret.yml
+          EOL
+          cat back/src/main/resources/application-secret.yml
